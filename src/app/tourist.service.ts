@@ -26,4 +26,9 @@ export class TouristService implements ITouristService {
     return this.httpClient
       .put(`${this.restUrl}/edit`, tourist, { responseType: 'text' });
   }
+
+  getTouristById(tid: number): Observable<Tourist | string> {
+    return this.httpClient
+      .get<Tourist | string>(`${this.restUrl}/tourist/${tid}`, { responseType: 'json' });
+  }
 }
