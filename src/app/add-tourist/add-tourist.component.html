@@ -1,0 +1,54 @@
+<div class="container">
+    <div *ngIf="msg !== ''">
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <strong>Success!</strong> {{msg}}
+        </div>
+    </div>
+    <h1 class="text-center border rounded">Add A Tourist Details</h1>
+    <form class="mt-5">
+        <div>
+            <div class="mb-3">
+                <label for="tid" class="form-label">Tourist ID:</label>
+                <input name="tid" type="number" class="form-control" id="tid" placeholder="Enter Tourist ID"
+                    [(ngModel)]="tourist.tid">
+            </div>
+            <div class="mb-3">
+                <label for="tname" class="form-label">Tourist Name:</label>
+                <input name="tname" type=" text" class="form-control" id="tname" placeholder="Enter Tourist Name"
+                    [(ngModel)]="tourist.name">
+            </div>
+            <div class="mb-3">
+                <label for="tcity" class="form-label">Tourist City:</label>
+                <input name="tcity" type="text" class="form-control" id="tcity" placeholder="Enter Tourist City"
+                    [(ngModel)]="tourist.city">
+            </div>
+            <div class="mb-3">
+                <label for="tPackageType" class="form-label">Tourist Package Type:</label>
+                <select name="tPackageType" class="form-control" id="tPackageType" [(ngModel)]="tourist.packageType">
+                    <option>Choose Package Type</option>
+                    <option name="Luxuary" value="Luxuary">Luxuary</option>
+                    <option name="Deluxe" value="Deluxe">Deluxe</option>
+                    <option name="SuperLuxuary" value="Super Luxuary">Super Luxuary</option>
+                    <option name="Premium" value="Premium">Premium</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="tBudget" class="form-label">Tourist Budget:</label>
+                <select name="tBudget" class="form-control" id="tBudget" [(ngModel)]="tourist.budget"
+                    placeholder="Choose Budget">
+                    <option selected>Choose Budget</option>
+                    <option value="100000" name="100000">100000</option>
+                    <option value="150000" name="150000">150000</option>
+                    <option value="200000" name="200000">200000</option>
+                    <option value="250000" name="250000">250000</option>
+                </select>
+            </div>
+            <div class="mb-3 text-center">
+                <button type="button" id="addTourist" name="addTourist" class="btn btn-primary"
+                    (click)="saveTourist()">Add
+                    Tourist</button>
+            </div>
+        </div>
+    </form>
+</div>

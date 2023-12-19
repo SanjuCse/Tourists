@@ -25,3 +25,20 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## application.properties
+
+#### MySql Database
+
+spring.datasource.url=jdbc:mysql://localhost:3306/rest  
+spring.datasource.driverClassName=com.mysql.cj.jdbc.Driver  
+spring.datasource.username=root  
+spring.datasource.password=root  
+spring.jpa.database-platform=org.hibernate.dialect.MySQLDialect
+
+#### Hibernate properties
+
+spring.jpa.hibernate.ddl-auto=update  
+spring.jpa.properties.hibernate.globally_quoted_identifiers=true
+spring.jpa.properties.hibernate.globally_quoted_identifiers_skip_column_definitions=true
+spring.jpa.properties.hibernate.enable_lazy_load_no_trans=true

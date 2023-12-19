@@ -1,0 +1,36 @@
+<div class="container">
+    <div *ngIf="msg !== ''">
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <strong>Success!</strong> {{msg}}
+        </div>
+    </div>
+    <h1 class="text-center border rounded">Tourist Details</h1>
+    <table class="table table-striped text-center mt-5">
+        <thead>
+            <tr>
+                <th>Serial Number</th>
+                <th>Tourist ID</th>
+                <th>Tourist Name</th>
+                <th>Tourist City</th>
+                <th>Tourist Package Type</th>
+                <th>Tourist Budget</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let tourist of tourists; index as i">
+                <td>{{i+1}}</td>
+                <td>{{tourist.tid}}</td>
+                <td>{{tourist.name}}</td>
+                <td>{{tourist.city}}</td>
+                <td>{{tourist.packageType}}</td>
+                <td>{{tourist.budget}}</td>
+                <td><button type="button" class="btn btn-primary" (click)="editTourist(tourist.tid)">Edit</button></td>
+                <td><button type="button" class="btn btn-danger" (click)="deleteTourist(tourist.tid)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
