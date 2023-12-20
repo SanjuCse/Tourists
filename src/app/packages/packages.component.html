@@ -1,0 +1,79 @@
+<div class="container">
+    <div *ngIf="msg !== ''">
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <strong>Success!</strong> {{msg}}
+        </div>
+    </div>
+    <h1 class="text-center border rounded">Add A Tourist Package Details</h1>
+    <form class="mt-5">
+        <div>
+            <div class="mb-3">
+                <label for="touristPackageId" class="form-label">Tourist Package ID:</label>
+                <input name="touristPackageId" type="number" class="form-control" id="touristPackageId"
+                    placeholder="Enter Tourist Package ID" [(ngModel)]="touristPackage.packageId">
+            </div>
+            <div class="mb-3">
+                <label for="touristPackageName" class="form-label">Tourist Package Name:</label>
+                <input name="touristPackageName" type="text" class="form-control" id="touristPackageName"
+                    placeholder="Enter Tourist Package Name" [(ngModel)]="touristPackage.packageName">
+            </div>
+            <div class="mb-3">
+                <label for="touristPackageBudget" class="form-label">Tourist Package Budget:</label>
+                <input name="touristPackageBudget" type="text" class="form-control" id="touristPackageBudget"
+                    placeholder="Enter Tourist Package Budget" [(ngModel)]="touristPackage.budget">
+            </div>
+
+            <div class="mb-3 text-center">
+                <button type="button" id="addTouristPackage" name="addTouristPackage" class="btn btn-primary"
+                    (click)="savetouristPackage()">Add / Update
+                    Tourist Package</button>
+            </div>
+        </div>
+    </form>
+    <div *ngIf="touristPackages.length != 0;else ElseTouristPackages ">
+        <h1 class="text-center border rounded">Tourist Package Details</h1>
+        <table class="table table-striped text-center mt-5">
+            <thead>
+                <tr>
+                    <th>Serial Number</th>
+                    <th>Tourist Package ID</th>
+                    <th>Tourist Package Name</th>
+                    <th>Tourist Package City</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let touristPackage of touristPackages; index as i">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ touristPackage.packageId }}</td>
+                    <td>{{ touristPackage.packageName }}</td>
+                    <td>{{ touristPackage.budget }}</td>
+                    <td>
+                        <button type="button" class="btn btn-primary" (click)="editTouristPackage(i)"
+                            data-bs-toggle="modal" data-bs-target="#editTourist">
+                            Edit
+                        </button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-danger" (click)="deleteTouristPackage()">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <ng-template #ElseTouristPackages>
+            <h1 class="border rounded text-center mt-5">
+                <div class=" col">
+                    <div class="row">
+                        <h1>No Tourist Packages Details found please do some entries</h1>
+                    </div>
+                </div>
+            </h1>
+        </ng-template>
+    </div>
+</div>

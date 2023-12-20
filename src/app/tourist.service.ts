@@ -9,26 +9,45 @@ import { ITouristService } from './itourist-service';
 })
 export class TouristService implements ITouristService {
   private restUrl = "http://localhost:8080";
+
   constructor(private httpClient: HttpClient) { }
 
+
+  editTouristPackage(tourist: Tourist): Observable<string> {
+    throw new Error('Method not implemented.');
+  }
+  getTouristPackageById(tid: number): Observable<string | Tourist> {
+    throw new Error('Method not implemented.');
+  }
+
   saveTourist(tourist: Tourist): Observable<string> {
-    return this.httpClient
+    return this
+      .httpClient
       .post(`${this.restUrl}/save`, tourist, { responseType: 'text' });
   }
+
   getAllTourists(): Observable<Tourist[]> {
-    return this.httpClient.get<Tourist[]>(`${this.restUrl}/tourists`, { responseType: 'json' });
+    return this
+      .httpClient
+      .get<Tourist[]>(`${this.restUrl}/tourists`, { responseType: 'json' });
   }
+
   getATouristDetails(tid: number): Observable<string | Tourist> {
-    return this.httpClient.get<Tourist | string>(`${this.restUrl}/tourist/${tid}`, { responseType: 'json' });
+    return this
+      .httpClient
+      .get<Tourist | string>(`${this.restUrl}/tourist/${tid}`, { responseType: 'json' });
+  }
+
+
+  getTouristById(tid: number): Observable<Tourist> {
+    return this
+      .httpClient
+      .get<Tourist>(`${this.restUrl}/tourist/${tid}`, { responseType: 'json' });
   }
 
   editTourist(tourist: Tourist): Observable<string> {
-    return this.httpClient
+    return this
+      .httpClient
       .put(`${this.restUrl}/edit`, tourist, { responseType: 'text' });
-  }
-
-  getTouristById(tid: number): Observable<Tourist | string> {
-    return this.httpClient
-      .get<Tourist | string>(`${this.restUrl}/tourist/${tid}`, { responseType: 'json' });
   }
 }

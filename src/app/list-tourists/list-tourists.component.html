@@ -29,22 +29,13 @@
           <td>{{ tourist.packageType }}</td>
           <td>{{ tourist.budget }}</td>
           <td>
-            <button
-              type="button"
-              class="btn btn-primary"
-              (click)="editTourist(tourist.tid)"
-              data-bs-toggle="modal"
-              data-bs-target="#editTourist"
-            >
+            <button type="button" class="btn btn-primary" (click)="getTouristByIndex(i)" data-bs-toggle="modal"
+              data-bs-target="#editTourist">
               Edit
             </button>
           </td>
           <td>
-            <button
-              type="button"
-              class="btn btn-danger"
-              (click)="deleteTourist(tourist.tid)"
-            >
+            <button type="button" class="btn btn-danger" (click)="deleteTourist(tourist.tid)">
               Delete
             </button>
           </td>
@@ -53,8 +44,8 @@
     </table>
   </div>
   <div>
-    <ng-template #ElseTourists
-      ><h1 class="text-center">
+    <ng-template #ElseTourists>
+      <h1 class="text-center">
         <div class="col">
           <div class="row">
             <h1>No Tourist Details found please do some entries</h1>
@@ -68,31 +59,68 @@
       </h1>
     </ng-template>
   </div>
+  <!-- The Modal -->
   <div>
-    <!-- The Modal -->
     <div class="modal modal-lg fade" id="editTourist">
       <div class="modal-dialog">
         <div class="modal-content">
           <!-- Modal Header -->
           <div class="modal-header">
             <h4 class="modal-title">Modal Heading</h4>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-            ></button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
           </div>
 
-          <!-- Modal body -->
-          <div class="modal-body">Modal body..</div>
+          <form class="container mt-5">
+            <div>
+              <div class="mb-3">
+                <label for="tid" class="form-label">Tourist ID:</label>
+                <input name="tid" type="number" class="form-control" id="tid" placeholder="Enter Tourist ID"
+                  [(ngModel)]="editTourist.tid">
+              </div>
+              <div class="mb-3">
+                <label for="tname" class="form-label">Tourist Name:</label>
+                <input name="tname" type=" text" class="form-control" id="tname" placeholder="Enter Tourist Name"
+                  [(ngModel)]="editTourist.name">
+              </div>
+              <div class="mb-3">
+                <label for="tcity" class="form-label">Tourist City:</label>
+                <input name="tcity" type="text" class="form-control" id="tcity" placeholder="Enter Tourist City"
+                  [(ngModel)]="editTourist.city">
+              </div>
+              <div class="mb-3">
+                <label for="tPackageType" class="form-label">Tourist Package Type:</label>
+                <select name="tPackageType" class="form-control" id="tPackageType"
+                  [(ngModel)]="editTourist.packageType">
+                  <option>Choose Package Type</option>
+                  <option name="Luxuary" value="Luxuary">Luxuary</option>
+                  <option name="Deluxe" value="Deluxe">Deluxe</option>
+                  <option name="SuperLuxuary" value="Super Luxuary">Super Luxuary</option>
+                  <option name="Premium" value="Premium">Premium</option>
+                  <option name="Ultra Luxuary" value="Ultra Luxuary">Ultra Luxuary</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="tBudget" class="form-label">Tourist Budget:</label>
+                <select name="tBudget" class="form-control" id="tBudget" [(ngModel)]="editTourist.budget"
+                  placeholder="Choose Budget">
+                  <option selected>Choose Budget</option>
+                  <option value="100000" name="100000">100000</option>
+                  <option value="150000" name="150000">150000</option>
+                  <option value="200000" name="200000">200000</option>
+                  <option value="250000" name="250000">250000</option>
+                  <option value="300000" name="300000">300000</option>
+                </select>
+              </div>
+              <div class="mb-3 text-center">
+                <button type="button" id="addTourist" name="addTourist" class="btn btn-primary"
+                  (click)="editTouristPut()">Update Tourist</button>
+              </div>
+            </div>
+          </form>
 
           <!-- Modal footer -->
           <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-danger"
-              data-bs-dismiss="modal"
-            >
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
               Close
             </button>
           </div>

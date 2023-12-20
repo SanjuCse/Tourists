@@ -12,13 +12,15 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { ListTouristsComponent } from './list-tourists/list-tourists.component';
+import { PackagesComponent } from './packages/packages.component';
 
 var myRoutes: Routes = [
   { path: "", component: HomeComponent },
   { path: "home", component: HomeComponent },
   { path: "about", component: AboutComponent },
   { path: "addtourist", component: AddTouristComponent },
-  { path: "tourists", component: ListTouristsComponent }
+  { path: "tourists", component: ListTouristsComponent },
+  { path: "packages", component: PackagesComponent },
 ];
 
 var myRoutes2 = RouterModule.forRoot(myRoutes);
@@ -32,6 +34,7 @@ var myRoutes2 = RouterModule.forRoot(myRoutes);
     HomeComponent,
     AboutComponent,
     ListTouristsComponent,
+    PackagesComponent,
   ],
   imports: [
     BrowserModule,
