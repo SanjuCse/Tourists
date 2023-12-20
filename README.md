@@ -42,3 +42,22 @@ spring.jpa.hibernate.ddl-auto=update
 spring.jpa.properties.hibernate.globally_quoted_identifiers=true
 spring.jpa.properties.hibernate.globally_quoted_identifiers_skip_column_definitions=true
 spring.jpa.properties.hibernate.enable_lazy_load_no_trans=true
+
+## Technology Used
+
+Spring Boot, Data JPA, Rest  
+Swagger API Documentation  
+Angular v16  
+MySql
+
+> Project Execution Steps
+
+- clone repository `git clone https://github.com/SanjuCse/Tourists.git`
+- Install all npm packages `npm install` in Tourists folder
+- create database `create database rest` in MySQL
+- make sure java version should be minimum 17 by `java --version`
+- run jar file from Tourists/src/assets `java -jar Tourists/src/assets/RestMiniProj-Tourist-0.0.1-SNAPSHOT.jar`
+- run angular project `ng s -o`
+- now all set :)
+- now you can visit `localhost:4200` for front-end
+- for API Documentation visit `localhost:8080/swagger-ui.html`
