@@ -1,0 +1,13 @@
+Hello Team,
+
+Hope is everything is going well with the Trainings provided, let me know of any concerns.
+
+Following is the planned schedule for the week ahead:
+
+1.	Write a Java program to query MySQL database and display the records in the console using Java stream API, can use one of the existing POT tables.
+2.	Write a Java program using Java Servlet to query database and display the records in the browser in the form of HTML table.
+3.	Write a Java program to create a text file in a directory and write contents to it using IO streams.
+4.	Ongoing Spring Framework and Spring Boot training.
+
+Java features used in the above 3 programs:
+Java Collections, Java Stream API, Java Servlet, IO Streams and SQL.
