@@ -12,7 +12,6 @@ export class TouristService implements ITouristService {
 
   constructor(private httpClient: HttpClient) { }
 
-
   editTouristPackage(tourist: Tourist): Observable<string> {
     throw new Error('Method not implemented.');
   }
@@ -49,5 +48,10 @@ export class TouristService implements ITouristService {
     return this
       .httpClient
       .put(`${this.restUrl}/edit`, tourist, { responseType: 'text' });
+  }
+
+  deleteTourist(touristId: number): Observable<string> {
+    return this.httpClient
+      .delete(`${this.restUrl}/delete/${touristId}`, { responseType: 'text' })
   }
 }

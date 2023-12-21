@@ -25,32 +25,28 @@
             </div>
             <div class="mb-3">
                 <label for="tPackageType" class="form-label">Tourist Package Type:</label>
-                <select name="tPackageType" class="form-control" id="tPackageType" [(ngModel)]="tourist.packageType">
+                <select name="tPackageType" class="form-control" id="tPackageType">
                     <option>Choose Package Type</option>
-                    <option name="Luxuary" value="Luxuary">Luxuary</option>
-                    <option name="Deluxe" value="Deluxe">Deluxe</option>
-                    <option name="SuperLuxuary" value="Super Luxuary">Super Luxuary</option>
-                    <option name="Premium" value="Premium">Premium</option>
-                    <option name="Ultra Luxuary" value="Ultra Luxuary">Ultra Luxuary</option>
+                    <option name="Luxuary" *ngFor="let touristPackage of touristPackages; index as i"
+                        value="{{touristPackage.packageName}}" (click)="selectedPackageName(i)"
+                        [(ngModel)]="tourist.packageType">
+                        {{touristPackage.packageName}}</option>
                 </select>
             </div>
             <div class="mb-3">
                 <label for="tBudget" class="form-label">Tourist Budget:</label>
-                <select name="tBudget" class="form-control" id="tBudget" [(ngModel)]="tourist.budget"
-                    placeholder="Choose Budget">
-                    <option selected>Choose Budget</option>
-                    <option value="100000" name="100000">100000</option>
-                    <option value="150000" name="150000">150000</option>
-                    <option value="200000" name="200000">200000</option>
-                    <option value="250000" name="250000">250000</option>
-                    <option value="300000" name="300000">300000</option>
+                <select name="tBudget" class="form-control" id="tBudget" placeholder="Choose Budget">
+                    <option>Choose Package Type</option>
+                    <option name="Luxuary" *ngFor="let touristPackage of touristPackages; index as i"
+                        value="{{touristPackage.budget}}" (click)="selectedBudgetAmount(i)"
+                        [(ngModel)]="tourist.budget">
+                        {{touristPackage.budget}}</option>
                 </select>
             </div>
-            <div class="mb-3 text-center">
-                <button type="button" id="addTourist" name="addTourist" class="btn btn-primary"
-                    (click)="saveTourist()">Add
-                    Tourist</button>
-            </div>
+        </div>
+        <div class="mb-3 text-center">
+            <button type="button" id="addTourist" name="addTourist" class="btn btn-primary" (click)="saveTourist()">Add
+                Tourist</button>
         </div>
     </form>
 </div>

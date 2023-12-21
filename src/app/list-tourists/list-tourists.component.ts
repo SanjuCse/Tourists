@@ -12,10 +12,16 @@ export class ListTouristsComponent implements OnInit {
   tourists: Tourist[] = [];
   msg: string = "";
   editTourist: Tourist = new Tourist();
+  toBeDelete: boolean = false;
 
   constructor(private touristService: TouristService, private router: Router) { }
 
   ngOnInit(): void {
+    this.getAllTourists();
+  }
+
+
+  getAllTourists() {
     this.touristService
       .getAllTourists()
       .subscribe(response => this.tourists = response);
@@ -40,6 +46,22 @@ export class ListTouristsComponent implements OnInit {
   }
 
   deleteTourist(tid: number) {
+    this.msg = "";
+    this.toBeDelete = this.confirmDelete();
 
+    if (this.toBeDelete) {
+      this.touristService
+        .deleteTourist(tid)
+        .subscribe(response => { this.msg = response; this.getAllTourists(); });
+    } else {
+      this.msg = "Deletion Cancelled!"
+    }
   }
+
+
+  confirmDelete() {
+    this.msg = "";
+    return confirm("Are you sure you want to delete?");
+  }
+
 }

@@ -11,4 +11,6 @@ export interface ITouristService {
     editTouristPackage(tourist: Tourist): Observable<string>;
 
     getTouristPackageById(tid: number): Observable<Tourist | string>
+
+    deleteTourist(touristId: number): Observable<string>;
 }

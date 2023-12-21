@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ITouristPackageService } from './ipackage-service';
+import { ITouristPackageService } from './itouristpackage-service';
 import { TouristPackage } from './tourist-package';
 
 @Injectable({
@@ -25,5 +25,10 @@ export class TouristPackageService implements ITouristPackageService {
   updateTouristPackage(rouristPackage: TouristPackage): Observable<string> {
     return this.httpClient
       .put<string>(`${this.restUrl}/edit`, { responseType: 'text' });
+  }
+
+  deleteTouristPackage(touristPackageId: number): Observable<string> {
+    return this.httpClient
+      .delete(`${this.restUrl}/delete/${touristPackageId}`, { responseType: 'text' })
   }
 }

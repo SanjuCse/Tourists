@@ -34,7 +34,7 @@ var myRoutes2 = RouterModule.forRoot(myRoutes);
     HomeComponent,
     AboutComponent,
     ListTouristsComponent,
-    PackagesComponent,
+    PackagesComponent
   ],
   imports: [
     BrowserModule,

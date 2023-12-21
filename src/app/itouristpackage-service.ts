@@ -6,5 +6,7 @@ export interface ITouristPackageService {
 
     getAlltouristPackages(): Observable<TouristPackage[]>;
 
-    updateTouristPackage(rouristPackage: TouristPackage): Observable<string>;
+    updateTouristPackage(touristPackage: TouristPackage): Observable<string>;
+
+    deleteTouristPackage(touristPackageId: number): Observable<string>;
 }
